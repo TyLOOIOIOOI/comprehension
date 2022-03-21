@@ -38,7 +38,8 @@ for i in original_list:
 # which contains only the positive numbers from the list, as integers.
 
 numbers = [34.6, -203.4, 44.9, 68.3, -12.2, 44.6, 12.7]
-
+newlist = [n for n in numbers if n > 0]
+print(newlist)
 
 
 
@@ -47,7 +48,8 @@ numbers = [34.6, -203.4, 44.9, 68.3, -12.2, 44.6, 12.7]
 
 sentence = "the quick brown fox jumps over the lazy dog"
 words = sentence.split()
-
+newlist2 = [len(x) for x in words if x != 'the']
+print(newlist2)
 
 
 ## Given dictionary is consisted of vehicles and their weights in kilograms. 
@@ -57,24 +59,33 @@ words = sentence.split()
 dict={"Sedan": 1500, "SUV": 2000, "Pickup": 2500, "Minivan": 1600, "Van": 2400, 
 "Semi": 13600, "Bicycle": 7, "Motorcycle": 110}
 
+# newlist3= []
+list = [x.upper() for x in dict if dict[x] < 5000]
+print(list)
+
+## 4 Find all the numbers from 1 to 1000 that have a 4 in them
+
+new_range = [i for i in range(1, 1001) if '4' in str(i)  ]
+print(new_range)
+
+## 5 count how many times the word 'the' appears in the text file - 'sometext.txt'
+myfile = open("sometext.txt", "r").read().lower().split()
+count = [x for x in myfile if x == "the"]
+print(len(count))
+#myfile = file.read()
+#occurrences = myfile.count("the")
+#print(occurrences)
 
 
 
-## Find all the numbers from 1 to 1000 that have a 4 in them
+## 6 Extract the numbers from the following phrase ##
+
+phrase = ("In 1984 there were 13 instances of a protest with over 1000 people attending. On average there were 15 reported injuries at each " +
+"event, with about 3 or 4 that were classifled as serious per event.")
 
 
-
-## count how many times the word 'the' appears in the text file - 'sometext.txt'
-
-
-
-## Extract the numbers from the following phrase ##
-
-phrase = 'In 1984 there were 13 instances of a protest with over 1000 people attending. On average there were 15 reported injuries at each " +
-"event, with about 3 or 4 that were classifled as serious per event.'
-
-
-
+numbers = [ x for x in phrase.split() if x.isdigit()]
+print(numbers)
 
 
 
