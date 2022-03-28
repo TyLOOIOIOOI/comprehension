@@ -8,6 +8,8 @@ Odd numbers from the said list:
 [1, 3, 5, 7, 9]
 '''
 
+
+
 numbered_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 filtered_list_even = list(filter(lambda num:num % 2 == 0, numbered_list))
@@ -93,20 +95,46 @@ Elements of the said list that contain specific substring:
 []
 
 '''
+original_list3 = ['red', 'black', 'white', 'green', 'orange']
+list5 = list(filter(lambda num:("ack" in num), original_list3))
+list6 = list(filter(lambda num:("abc" in num), original_list3))
 
 
-
-
+print(list5)
+print(list6)
 
 
 ''' 6)
 check whether a given string contains a capital letter, a lower case letter, a number and a minimum length of 8 characters.
 (This is like a password verification function, HINT: Python function 'any' may be useful)
 '''
+Password= input("What is your password? ")
+
+R = [lambda x: any(x.isupper()for x in Password),
+        lambda x: any(x.islower()for x in Password),
+        lambda x: any(x.isdigit()for x in Password),
+        lambda x: len(Password) >= 8]
+
+if all(rule(Password)for rule in R):
+    print("Valid Password")
+else:
+    print('Invalid Password')
 
 
+'''
+if any(
+    (
+        lambda x:x is Password.islower(), Password.isdigit(), len(Password)>=8, Password,
+        
+    )
+):
 
+    print("Valid Password")
 
+else: 
+    print("Invalid Password")
+
+'''
 
 
 
@@ -119,3 +147,6 @@ original_scores = [('English', 88), ('Science', 90), ('Maths', 97), ('Social sci
 # Expected Result:
 # [('Social sciences', 82), ('English', 88), ('Science', 90), ('Maths', 97)]
 '''
+lst = [('English', 88), ('Science', 90), ('Maths', 97), ('Social sciences', 82)]
+lst.sort(key=lambda x:x[1])
+print(lst)
